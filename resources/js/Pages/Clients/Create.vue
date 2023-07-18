@@ -1,6 +1,18 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, useForm } from '@inertiajs/vue3';
+
+const form = useForm({
+    code: null,
+    name: null,
+    email: null,
+    vat_number: null,
+    phone_number: null
+})
+
+function addClient() {
+    form.post('/Clients')
+}
 </script>
 
 <template>
@@ -16,7 +28,8 @@ import { Head, Link } from '@inertiajs/vue3';
                 <section>
                     <div
                         class="block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-                        <form>
+                        <form @submit.prevent="addClient">
+
                             <div class="grid grid-cols-2 gap-4">
                                 <!--Codice cliente input-->
                                 <div class="mb-6">
