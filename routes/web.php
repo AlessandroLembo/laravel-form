@@ -27,8 +27,8 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/Clients', [ClientController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-    Route::get('/NewClient', [ClientController::class, 'create'])->name('Clients.NewClient');
+    Route::get('/Clients', [ClientController::class, 'index'])->middleware(['auth', 'verified'])->name('Clients');
+    Route::get('/Clients/Create', [ClientController::class, 'create'])->name('Clients.Create');
 });
 
 

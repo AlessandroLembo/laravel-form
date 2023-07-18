@@ -15,7 +15,7 @@ class ClientController extends Controller
 
     public function create()
     {
-        return Inertia::render('Clients/NewClient', [
+        return Inertia::render('Clients/Create', [
             'clients' => Client::all()
         ]);
     }
