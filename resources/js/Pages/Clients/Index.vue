@@ -7,7 +7,7 @@ import { usePage } from '@inertiajs/vue3';
 const page = usePage()
 
 const clients = computed(() => page.props.auth.clients)
-console.log(clients);
+
 </script>
 
 <template>
@@ -44,6 +44,7 @@ console.log(clients);
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <!-- giro sull'array dei clienti e ne stampo i dati -->
                                         <tr v-for="client in clients" :key="client.id"
                                             class="border-b dark:border-neutral-500">
                                             <td class="whitespace-nowrap px-6 py-4"></td>
