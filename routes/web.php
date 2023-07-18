@@ -26,7 +26,9 @@ Route::get('/', function () {
     ]);
 });
 
+// Route::get('/dashboard', [ClientController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard', [ClientController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/Clients', [ClientController::class, 'create'])->name('Clients.NewClient');
 
 
