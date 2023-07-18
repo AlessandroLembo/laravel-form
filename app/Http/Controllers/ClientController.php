@@ -10,13 +10,13 @@ class ClientController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Clients/Index');
+        return Inertia::render('Clients/Index', [
+            'clients' => Client::all()
+        ]);
     }
 
     public function create()
     {
-        return Inertia::render('Clients/Create', [
-            'clients' => Client::all()
-        ]);
+        return Inertia::render('Clients/Create');
     }
 }
