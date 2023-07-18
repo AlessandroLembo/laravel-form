@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -14,6 +14,10 @@ import { Head } from '@inertiajs/vue3';
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <h1>Form Nuovo Cliente</h1>
+                <div class="flex justify-end m-2 p-2">
+                    <Link href="/Clients" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded">
+                    Tabella Clienti</Link>
+                </div>
             </div>
         </div>
     </AuthenticatedLayout>
