@@ -1,6 +1,14 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
+import { computed } from 'vue'
+import { usePage } from '@inertiajs/vue3'
+
+
+const page = usePage()
+
+const clients = computed(() => page.props.auth.clients)
+// console.log(clients);
 </script>
 
 <template>
@@ -18,6 +26,7 @@ import { Head, Link } from '@inertiajs/vue3';
                     <Link href="/Clients/Create" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded">
                     Nuovo Cliente</Link>
                 </div>
+                <div v-for="client in clients" :key="client.id">{{ client.nome }}</div>
             </div>
         </div>
     </AuthenticatedLayout>
