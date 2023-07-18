@@ -26,10 +26,10 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::get('/dashboard', [ClientController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/dashboard', [ClientController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/Clients', [ClientController::class, 'create'])->name('Clients.NewClient');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/Clients', [ClientController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/NewClient', [ClientController::class, 'create'])->name('Clients.NewClient');
+});
 
 
 Route::middleware('auth')->group(function () {
