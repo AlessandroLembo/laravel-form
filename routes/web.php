@@ -26,7 +26,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/Clients', [ClientController::class, 'index'])->name('Clients.index');
+Route::get('/Clients', [ClientController::class, 'create'])->name('Clients.NewClient');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

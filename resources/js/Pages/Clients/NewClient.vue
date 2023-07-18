@@ -8,12 +8,12 @@ import { Head } from '@inertiajs/vue3';
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Clients Index</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Aggiungi nuovo cliente</h2>
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <h1>tabella clients</h1>
+                <h1>Form Nuovo Cliente</h1>
             </div>
         </div>
     </AuthenticatedLayout>

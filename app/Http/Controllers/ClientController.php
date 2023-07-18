@@ -8,9 +8,9 @@ use Inertia\Inertia;
 
 class ClientController extends Controller
 {
-    public function index()
+    public function create()
     {
-        return Inertia::render('Clients/index', [
+        return Inertia::render('Clients/NewClient', [
             'clients' => Client::all()
         ]);
     }
