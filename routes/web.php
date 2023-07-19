@@ -26,9 +26,11 @@ Route::get('/', function () {
     ]);
 });
 
+// Rotte protette per gestire i clienti dell'azienda
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/Clients', [ClientController::class, 'index'])->middleware(['auth', 'verified'])->name('Clients');
+    Route::get('/Clients', [ClientController::class, 'index'])->name('Clients');
     Route::get('/Clients/Create', [ClientController::class, 'create'])->name('Clients.Create');
+    Route::post('/Clients', [ClientController::class, 'store'])->name('Clients.Store');
 });
 
 
