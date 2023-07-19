@@ -23,18 +23,13 @@ class ClientController extends Controller
 
     public function store(Request $request)
     {
-
-        $data = $request->all();
-
-        $new_client = new Client();
-
-        $new_client->codice = $data['code'];
-        $new_client->partita_iva = $data['vat_number'];
-        $new_client->nome = $data['name'];
-        $new_client->email = $data['email'];
-        $new_client->telefono = $data['phone_number'];
-
-        $new_client->save();
+        Client::create($request->validate([
+            'codice' => ['required', 'string', 'max:7'],
+            'nome' => ['required', 'string', 'max:50'],
+            'email' => ['required', 'string', 'max:50'],
+            'telefono' => ['required', 'string', 'max:10'],
+            'partita_iva' => ['nullable', 'string', 'max:11'],
+        ]));
 
         return to_route('Clients');
     }
