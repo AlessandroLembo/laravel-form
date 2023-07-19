@@ -24,10 +24,10 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         Client::create($request->validate([
-            'codice' => ['required', 'string', 'max:7'],
-            'nome' => ['required', 'string', 'max:50'],
-            'email' => ['required', 'string', 'max:50'],
-            'telefono' => ['required', 'string', 'max:10'],
+            'codice' => ['required', 'string', 'unique:clients', 'max:7'],
+            'nome' => ['required', 'string', 'unique:clients', 'max:50'],
+            'email' => ['required', 'string', 'unique:clients', 'max:50'],
+            'telefono' => ['required', 'string', 'unique:clients', 'max:10'],
             'partita_iva' => ['nullable', 'string', 'max:11'],
         ]));
 
