@@ -3,14 +3,14 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm, router } from '@inertiajs/vue3';
 import { reactive } from 'vue';
 
-defineProps({ errors: Object })
+// defineProps({ errors: Object });
 
 const form = reactive({
-    code: null,
-    vat_number: null,
-    name: null,
-    email: null,
-    phone_number: null
+    codice: '',
+    partita_iva: '',
+    nome: '',
+    email: '',
+    telefono: ''
 })
 
 function addClient() {
@@ -39,8 +39,9 @@ function addClient() {
                                     <label for="code-client">Codice
                                         Cliente
                                     </label>
-                                    <input class="w-full rounded px-3" id="code-client" v-model="form.code" />
-                                    <div v-if="errors.code">{{ errors.code }}</div>
+                                    <input class="w-full rounded px-3" id="code-client" v-model="form.codice" />
+                                    <div v-if="$page.props.errors.codice" class="text-red-800 text-xl">
+                                        {{ $page.props.errors.codice }}</div>
                                 </div>
 
                                 <!--Partita Iva input-->
@@ -48,8 +49,7 @@ function addClient() {
                                     <label for="vat-number">Partita
                                         Iva
                                     </label>
-                                    <input class="w-full rounded px-3" id="vat-number" v-model="form.vat_number" />
-                                    <div v-if="errors.vat_number">{{ errors.vat_number }}</div>
+                                    <input class="w-full rounded px-3" id="vat-number" v-model="form.partita_iva" />
                                 </div>
                             </div>
 
@@ -59,8 +59,9 @@ function addClient() {
                                     <label for="name">Nome
                                         Cliente
                                     </label>
-                                    <input class="w-full rounded px-3" id="name" v-model="form.name" />
-                                    <div v-if="errors.name">{{ errors.name }}</div>
+                                    <input class="w-full rounded px-3" id="name" v-model="form.nome" />
+                                    <div v-if="$page.props.errors.nome" class="text-red-800 text-xl">{{
+                                        $page.props.errors.nome }}</div>
                                 </div>
 
                                 <!--Email input-->
@@ -68,7 +69,8 @@ function addClient() {
                                     <label for="email">Email
                                     </label>
                                     <input class="w-full rounded px-3" id="email" v-model="form.email" />
-                                    <div v-if="errors.email">{{ errors.email }}</div>
+                                    <div v-if="$page.props.errors.email" class="text-red-800 text-xl">{{
+                                        $page.props.errors.email }}</div>
                                 </div>
                             </div>
 
@@ -77,8 +79,9 @@ function addClient() {
                                 <div class="mb-6">
                                     <label for="phone">Contatto Telefonico
                                     </label>
-                                    <input class="w-full rounded px-3" id="phone" v-model="form.phone_number" />
-                                    <div v-if="errors.phone_number">{{ errors.phone_number }}</div>
+                                    <input class="w-full rounded px-3" id="phone" v-model="form.telefono" />
+                                    <div v-if="$page.props.errors.telefono" class="text-red-800 text-xl">{{
+                                        $page.props.errors.telefono }}</div>
 
                                 </div>
                                 <!--Submit button-->
