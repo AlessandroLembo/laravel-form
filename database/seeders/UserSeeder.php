@@ -14,18 +14,18 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = [
-            'name' => 'Alessandro',
-            'email' => 'ale@yahoo.it',
-            'password' => bcrypt('omniasoft'),
-        ];
+        // $users = [
+        //     'name' => 'Alessandro',
+        //     'email' => 'ale@yahoo.it',
+        //     'password' => bcrypt('omniasoft'),
+        // ];
 
-        $new_user = new User();
+        // $new_user = new User();
 
-        $new_user->name = $users['name'];
-        $new_user->email = $users['email'];
-        $new_user->password = $users['password'];
+        // $new_user->name = $users['name'];
+        // $new_user->email = $users['email'];
+        // $new_user->password = $users['password'];
 
-        $new_user->save();
+        // $new_user->save();
     }
 }
