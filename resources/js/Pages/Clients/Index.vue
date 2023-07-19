@@ -42,11 +42,11 @@ const clients = computed(() => page.props.auth.clients)
                                             class="border-b dark:border-neutral-500">
                                             <td class="whitespace-nowrap px-6 py-4"></td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-lg">{{ client.id }}</td>
-                                            <td class="whitespace-nowrap px-6 py-4 text-lg">{{ client.codice }}</td>
-                                            <td class="whitespace-nowrap px-6 py-4 text-lg">{{ client.nome }}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-lg">{{ client.code }}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-lg">{{ client.name }}</td>
                                             <td class="whitespace-nowrap px-6 py-4 text-lg">{{ client.email }}</td>
-                                            <td class="whitespace-nowrap px-6 py-4 text-lg">{{ client.telefono }}</td>
-                                            <td class="whitespace-nowrap px-6 py-4 text-lg">{{ client.partita_iva }}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-lg">{{ client.phone_number }}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-lg">{{ client.vat_number }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -15,39 +15,39 @@ class ClientSeeder extends Seeder
     {
         $clients = [
             [
-                'codice' => '0023458',
-                'nome' => 'CilentoMania',
+                'code' => '0023458',
+                'name' => 'CilentoMania',
                 'email' => 'cilentomania@yahoo.it',
-                'telefono' => '3334455666',
-                'partita_iva' => '12345678987'
+                'phone_number' => '3334455666',
+                'vat_number' => '12345678987'
             ],
             [
-                'codice' => '0044667',
-                'nome' => 'EvolutionTech',
+                'code' => '0044667',
+                'name' => 'EvolutionTech',
                 'email' => 'evolution@libero.it',
-                'telefono' => '3284422111',
-                'partita_iva' => '12332112345'
+                'phone_number' => '3284422111',
+                'vat_number' => '12332112345'
             ],
             [
-                'codice' => '0033888',
-                'nome' => 'SummerCommunication',
+                'code' => '0033888',
+                'name' => 'SummerCommunication',
                 'email' => 'summer@libero.it',
-                'telefono' => '3236699089',
-                'partita_iva' => '22233344455'
+                'phone_number' => '3236699089',
+                'vat_number' => '22233344455'
             ],
             [
-                'codice' => '0055221',
-                'nome' => 'BorgoBurger',
+                'code' => '0055221',
+                'name' => 'BorgoBurger',
                 'email' => 'burger@yahoo.it',
-                'telefono' => '3256677888',
-                'partita_iva' => '23456789989'
+                'phone_number' => '3256677888',
+                'vat_number' => '23456789989'
             ],
             [
-                'codice' => '0077331',
-                'nome' => 'NewEnergy',
+                'code' => '0077331',
+                'name' => 'NewEnergy',
                 'email' => 'energy@yahoo.it',
-                'telefono' => '3209988345',
-                'partita_iva' => '33554422777'
+                'phone_number' => '3209988345',
+                'vat_number' => '33554422777'
             ],
 
         ];
@@ -55,11 +55,11 @@ class ClientSeeder extends Seeder
         foreach ($clients as $client) {
             $new_client = new Client();
 
-            $new_client->codice = $client['codice'];
-            $new_client->nome = $client['nome'];
+            $new_client->code = $client['code'];
+            $new_client->name = $client['name'];
             $new_client->email = $client['email'];
-            $new_client->telefono = $client['telefono'];
-            $new_client->partita_iva = $client['partita_iva'];
+            $new_client->phone_number = $client['phone_number'];
+            $new_client->vat_number = $client['vat_number'];
 
             $new_client->save();
         }

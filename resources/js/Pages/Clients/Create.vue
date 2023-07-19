@@ -1,16 +1,14 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link, useForm, router } from '@inertiajs/vue3';
+import { Head, Link, router } from '@inertiajs/vue3';
 import { reactive } from 'vue';
 
-// defineProps({ errors: Object });
-
 const form = reactive({
-    codice: '',
-    partita_iva: '',
-    nome: '',
+    code: '',
+    vat_number: '',
+    name: '',
     email: '',
-    telefono: ''
+    phone_number: ''
 })
 
 function addClient() {
@@ -39,9 +37,9 @@ function addClient() {
                                     <label for="code-client">Codice
                                         Cliente
                                     </label>
-                                    <input class="w-full rounded px-3" id="code-client" v-model="form.codice" />
-                                    <div v-if="$page.props.errors.codice" class="text-red-800 text-xl">
-                                        {{ $page.props.errors.codice }}</div>
+                                    <input class="w-full rounded px-3" id="code-client" v-model="form.code" />
+                                    <div v-if="$page.props.errors.code" class="text-red-800 text-xl">
+                                        {{ $page.props.errors.code }}</div>
                                 </div>
 
                                 <!--Partita Iva input-->
@@ -49,7 +47,9 @@ function addClient() {
                                     <label for="vat-number">Partita
                                         Iva
                                     </label>
-                                    <input class="w-full rounded px-3" id="vat-number" v-model="form.partita_iva" />
+                                    <input class="w-full rounded px-3" id="vat-number" v-model="form.vat_number" />
+                                    <div v-if="$page.props.errors.vat_number" class="text-red-800 text-xl">
+                                        {{ $page.props.errors.vat_number }}</div>
                                 </div>
                             </div>
 
@@ -59,9 +59,9 @@ function addClient() {
                                     <label for="name">Nome
                                         Cliente
                                     </label>
-                                    <input class="w-full rounded px-3" id="name" v-model="form.nome" />
-                                    <div v-if="$page.props.errors.nome" class="text-red-800 text-xl">{{
-                                        $page.props.errors.nome }}</div>
+                                    <input class="w-full rounded px-3" id="name" v-model="form.name" />
+                                    <div v-if="$page.props.errors.name" class="text-red-800 text-xl">{{
+                                        $page.props.errors.name }}</div>
                                 </div>
 
                                 <!--Email input-->
@@ -79,9 +79,9 @@ function addClient() {
                                 <div class="mb-6">
                                     <label for="phone">Contatto Telefonico
                                     </label>
-                                    <input class="w-full rounded px-3" id="phone" v-model="form.telefono" />
-                                    <div v-if="$page.props.errors.telefono" class="text-red-800 text-xl">{{
-                                        $page.props.errors.telefono }}</div>
+                                    <input class="w-full rounded px-3" id="phone" v-model="form.phone_number" />
+                                    <div v-if="$page.props.errors.phone_number" class="text-red-800 text-xl">{{
+                                        $page.props.errors.phone_number }}</div>
 
                                 </div>
                                 <!--Submit button-->

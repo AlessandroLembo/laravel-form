@@ -34,7 +34,7 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user(),
-                'clients' => Client::get(['id', 'codice', 'nome', 'email', 'telefono', 'partita_iva'])
+                'clients' => Client::get(['id', 'code', 'name', 'email', 'phone_number', 'vat_number'])
             ],
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
