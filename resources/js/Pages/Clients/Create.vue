@@ -1,17 +1,20 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Head, Link, useForm, router } from '@inertiajs/vue3';
+import { reactive } from 'vue';
 
-const form = useForm({
+defineProps({ errors: Object })
+
+const form = reactive({
     code: null,
+    vat_number: null,
     name: null,
     email: null,
-    vat_number: null,
     phone_number: null
 })
 
 function addClient() {
-    form.post('/Clients')
+    router.post('/Clients', form)
 }
 </script>
 
@@ -36,7 +39,8 @@ function addClient() {
                                     <label for="code-client">Codice
                                         Cliente
                                     </label>
-                                    <input type="text" class="w-full rounded px-3" id="code-client" />
+                                    <input class="w-full rounded px-3" id="code-client" v-model="form.code" />
+                                    <div v-if="errors.code">{{ errors.code }}</div>
                                 </div>
 
                                 <!--Partita Iva input-->
@@ -44,7 +48,8 @@ function addClient() {
                                     <label for="vat-number">Partita
                                         Iva
                                     </label>
-                                    <input type="text" class="w-full rounded px-3" id="vat-number" />
+                                    <input class="w-full rounded px-3" id="vat-number" v-model="form.vat_number" />
+                                    <div v-if="errors.vat_number">{{ errors.vat_number }}</div>
                                 </div>
                             </div>
 
@@ -54,14 +59,16 @@ function addClient() {
                                     <label for="name">Nome
                                         Cliente
                                     </label>
-                                    <input type="text" class="w-full rounded px-3" id="name" />
+                                    <input class="w-full rounded px-3" id="name" v-model="form.name" />
+                                    <div v-if="errors.name">{{ errors.name }}</div>
                                 </div>
 
                                 <!--Email input-->
                                 <div class="mb-6">
                                     <label for="email">Email
                                     </label>
-                                    <input type="text" class="w-full rounded px-3" id="email" />
+                                    <input class="w-full rounded px-3" id="email" v-model="form.email" />
+                                    <div v-if="errors.email">{{ errors.email }}</div>
                                 </div>
                             </div>
 
@@ -70,7 +77,9 @@ function addClient() {
                                 <div class="mb-6">
                                     <label for="phone">Contatto Telefonico
                                     </label>
-                                    <input type="text" class="w-full rounded px-3" id="phone" />
+                                    <input class="w-full rounded px-3" id="phone" v-model="form.phone_number" />
+                                    <div v-if="errors.phone_number">{{ errors.phone_number }}</div>
+
                                 </div>
                                 <!--Submit button-->
                                 <div class="flex justify-end">
